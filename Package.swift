@@ -3,15 +3,28 @@
 import PackageDescription
 
 let package = Package(
-  name: "LibXray",
+  name: "XrayKit",
   products: [
-    .library(name: "LibXray", targets: ["LibXray"])
+    .library(
+        name: "XrayKit",
+        targets: ["XrayKit"]
+    )
   ],
   targets: [
+    .target(
+        name: "XrayKit",
+        dependencies: ["XrayKitC", "LibXray"]
+    ),
+    .target(
+        name: "XrayKitC",
+        publicHeadersPath: "."
+    ),
     .binaryTarget(
-      name: "LibXray",
-      url: "https://github.com/DevLothen/LibXray/releases/download/1.0.0/LibXray.xcframework.zip",
-      checksum: "393032fd5ebdb75a6b528052b727184afd0f61f4886bfb1e83e1293e9cbbf294"
+        name: "LibXray",
+	url: "https://github.com/DevLothen/LibXray/releases/download/2.0.0/LibXray.xcframework.zip",
+	checksum: "45cfb2a425b2b9f65ad65d7071cd111f5ab31944d7dd6776c28c7565561074eb"
     )
   ]
 )
+
+
